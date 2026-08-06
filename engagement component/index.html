@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A live Firebase poll about study-space preferences at Columbia University.">
+  <title>Columbia Study Space Poll | Yizhang Mu</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">Columbia GSAPP</div>
+    <div class="course">Computational Design Workflows <span>Engagement Components</span></div>
+    <div class="author">Yizhang Mu</div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">Firebase Realtime Database · 2026</p>
+      <h1 id="page-title">Where do you usually study at Columbia University?</h1>
+      <p class="intro">
+        Choose the place where you spend most of your study time. Anonymous category totals update
+        live across connected devices, turning a small act of participation into spatial evidence.
+      </p>
+    </section>
+
+    <section class="poll-card" aria-labelledby="poll-heading">
+      <div class="poll-header">
+        <div>
+          <p class="section-label">Live poll</p>
+          <h2 id="poll-heading">Select one study space</h2>
+        </div>
+        <div id="connection-status" class="connection-status is-connecting" role="status" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Connecting…</span>
+        </div>
+      </div>
+
+      <div class="vote-grid" id="vote-grid">
+        <button class="vote-option" data-option="butler" type="button" aria-pressed="false">
+          <span class="option-number">01</span>
+          <span class="option-name">Butler Library</span>
+          <span class="vote-stat"><strong id="butler-count">0</strong><small id="butler-percent">0%</small></span>
+          <span class="result-track" aria-hidden="true"><span id="butler-bar"></span></span>
+        </button>
+
+        <button class="vote-option" data-option="avery" type="button" aria-pressed="false">
+          <span class="option-number">02</span>
+          <span class="option-name">Avery Library</span>
+          <span class="vote-stat"><strong id="avery-count">0</strong><small id="avery-percent">0%</small></span>
+          <span class="result-track" aria-hidden="true"><span id="avery-bar"></span></span>
+        </button>
+
+        <button class="vote-option" data-option="cafe" type="button" aria-pressed="false">
+          <span class="option-number">03</span>
+          <span class="option-name">Campus Café</span>
+          <span class="vote-stat"><strong id="cafe-count">0</strong><small id="cafe-percent">0%</small></span>
+          <span class="result-track" aria-hidden="true"><span id="cafe-bar"></span></span>
+        </button>
+
+        <button class="vote-option" data-option="dorm" type="button" aria-pressed="false">
+          <span class="option-number">04</span>
+          <span class="option-name">Dorm / Home</span>
+          <span class="vote-stat"><strong id="dorm-count">0</strong><small id="dorm-percent">0%</small></span>
+          <span class="result-track" aria-hidden="true"><span id="dorm-bar"></span></span>
+        </button>
+
+        <button class="vote-option" data-option="outdoor" type="button" aria-pressed="false">
+          <span class="option-number">05</span>
+          <span class="option-name">Outdoor Spaces</span>
+          <span class="vote-stat"><strong id="outdoor-count">0</strong><small id="outdoor-percent">0%</small></span>
+          <span class="result-track" aria-hidden="true"><span id="outdoor-bar"></span></span>
+        </button>
+
+        <button class="vote-option" data-option="studio" type="button" aria-pressed="false">
+          <span class="option-number">06</span>
+          <span class="option-name">Studio / Lab</span>
+          <span class="vote-stat"><strong id="studio-count">0</strong><small id="studio-percent">0%</small></span>
+          <span class="result-track" aria-hidden="true"><span id="studio-bar"></span></span>
+        </button>
+      </div>
+
+      <div class="poll-summary">
+        <p><strong id="total-votes">0</strong><span>Total responses</span></p>
+        <p id="leading-result"><strong>—</strong><span>Leading response</span></p>
+        <p id="participation-status"><strong>Open</strong><span>Your response</span></p>
+      </div>
+
+      <div class="poll-feedback">
+        <p class="poll-note" id="poll-message" aria-live="polite">Select an option to submit your response.</p>
+        <button id="change-vote" class="text-button" type="button" hidden>Change my response</button>
+      </div>
+    </section>
+
+    <section class="method-strip" aria-label="Method summary">
+      <div><span>01</span><strong>Collect</strong><p>One categorical response per browser.</p></div>
+      <div><span>02</span><strong>Synchronize</strong><p>Firebase updates every connected screen.</p></div>
+      <div><span>03</span><strong>Interpret</strong><p>Counts and shares reveal stated preferences.</p></div>
+    </section>
+
+    <section class="information-grid" aria-label="Project explanation">
+      <article>
+        <p class="section-label">Project use</p>
+        <h2>From participation to spatial evidence</h2>
+        <p>
+          The poll can support a broader study of campus space use by comparing stated preferences with
+          observations, occupancy counts, and spatial characteristics. It identifies where follow-up
+          interviews or site analysis may be most useful, rather than explaining preference by itself.
+        </p>
+      </article>
+
+      <article>
+        <p class="section-label">Data collected</p>
+        <h2>Minimal, aggregated categories</h2>
+        <p>
+          Firebase stores only a running count for each of six study-space categories. The page does not ask
+          for names, email addresses, demographics, location traces, or written responses. A browser-local
+          marker remembers the selected category so a participant can change rather than stack votes.
+        </p>
+      </article>
+
+      <article>
+        <p class="section-label">Ethics and limits</p>
+        <h2>Anonymous does not mean representative</h2>
+        <p>
+          Participation is voluntary and self-selected, so the results cannot represent all Columbia students.
+          Browser-based duplicate control is only a lightweight safeguard and can be bypassed. A longer-term
+          deployment should use clear consent language, secure rules, limited retention, accessibility review,
+          and a documented plan for who may use the results.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <span>Firebase Engagement Component</span>
+    <span>Columbia GSAPP · Yizhang Mu</span>
+  </footer>
+
+  <script src="poll-app.js"></script>
+</body>
+</html>
