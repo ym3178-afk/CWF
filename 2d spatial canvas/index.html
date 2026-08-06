@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Letters Across the Sea | 2D Spatial Canvas</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <strong>Letters Across the Sea · 2D</strong>
+    <a href="#archive">Archive</a>
+    <a href="#tree">Tree</a>
+    <a href="#flower">Flower</a>
+    <a href="../3D-Spatial-Canvas/index.html">Open 3D</a>
+  </nav>
+
+  <header class="hero">
+    <p class="eyebrow">p5.js · 2D spatial canvas</p>
+    <h1>Letters<br>Across<br>the Sea</h1>
+    <p class="intro">
+      A computational installation about family memory, paper, wind, flowers, distance, and return.
+      This folder contains one static 2D canvas and two dynamic 2D canvases.
+    </p>
+  </header>
+
+  <main>
+    <section class="canvas-section" id="archive">
+      <aside>
+        <span>2D Canvas 01 · Static</span>
+        <h2>The Letter Archive</h2>
+        <p>A quiet archive board: old paper, Thailand map, family photo, red thread, tickets, and memory labels.</p>
+      </aside>
+      <div id="archive-canvas" class="canvas-box"></div>
+    </section>
+
+    <section class="canvas-section" id="tree">
+      <aside>
+        <span>2D Canvas 02 · Dynamic</span>
+        <h2>Wishing Tree</h2>
+        <p>Red flowers bloom on a tree. Hanging letters swing with wind. Move the mouse to change the wind.</p>
+      </aside>
+      <div id="tree-canvas" class="canvas-box"></div>
+    </section>
+
+    <section class="canvas-section" id="flower">
+      <aside>
+        <span>2D Canvas 03 · Dynamic</span>
+        <h2>Red Cotton Flower</h2>
+        <p>A large red flower carries floating letter papers against a muted teal paper background.</p>
+      </aside>
+      <div id="flower-canvas" class="canvas-box"></div>
+    </section>
+
+    <section class="statement">
+      <h2>2D Design Statement</h2>
+      <p>
+        These p5.js canvases turn memory into layered images. Paper becomes an archive, a wishing tree,
+        and a blooming cotton flower. Static composition, wind, growth, and suspended letters translate
+        family memory into quiet visual movement.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Some letters crossed the sea.<br />
+    Some never arrived.
+  </footer>
+
+  <script src="js/archive.js"></script>
+  <script src="js/wishingTree.js"></script>
+  <script src="js/cottonFlower.js"></script>
+
+  <div id="credit-card">
+    <strong>Yizhang Mu</strong> (he/him)<br />
+    Columbia University<br />
+    GSAPP
+  </div>
+</body>
+</html>
