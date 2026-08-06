@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="An interactive D3.js network mapping the relationships within algorithmic management." />
+  <title>The Invisible Boss — Relational Structures</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top">YIZHANG MU</a>
+    <div class="course">COMPUTATIONAL DESIGN WORKFLOWS</div>
+    <a class="nav-link" href="#reflection">REFLECTION</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="eyebrow">DIGITAL OBJECT 3 · RELATIONAL STRUCTURES · 2026</div>
+      <h1>The Invisible Boss</h1>
+      <p class="dek">A relational map of how platforms coordinate labor through algorithms, data, markets, and governance.</p>
+      <div class="hero-meta">
+        <span>24 nodes</span><span>48 relationships</span><span>D3.js force network</span>
+      </div>
+    </section>
+
+    <section class="viz-section" aria-labelledby="visualization-title">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">INTERACTIVE NETWORK</p>
+          <h2 id="visualization-title">Who controls whom?</h2>
+        </div>
+        <p class="instruction">Filter relationships · scroll to zoom · drag to pan · click a node to trace its connections</p>
+      </div>
+
+      <div class="viz-shell">
+        <aside class="control-panel" aria-label="Visualization controls">
+          <div class="panel-block">
+            <div class="panel-label">RELATIONSHIPS</div>
+            <div id="filters" class="filters"></div>
+          </div>
+
+          <div class="panel-block">
+            <div class="panel-label">NODE TYPES</div>
+            <div id="node-legend" class="node-legend"></div>
+          </div>
+
+          <div class="panel-actions">
+            <button id="reset-view" type="button">Reset view</button>
+            <button id="release-nodes" type="button">Release nodes</button>
+            <button id="toggle-labels" type="button">Hide labels</button>
+          </div>
+        </aside>
+
+        <div class="canvas-wrap">
+          <div id="network" role="img" aria-label="Interactive network graph of algorithmic management"></div>
+          <div class="canvas-note">Node size = influence · Line width = relationship strength</div>
+        </div>
+
+        <aside id="detail-panel" class="detail-panel" aria-live="polite">
+          <div class="panel-label">SELECTED NODE</div>
+          <div class="detail-empty">
+            <div class="empty-mark">+</div>
+            <p>Select a node to reveal its role and direct relationships.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="reflection" class="reflection">
+      <div class="reflection-index">01</div>
+      <div>
+        <p class="kicker">RELATIONAL STRUCTURES IN MY WORK</p>
+        <h2>From isolated actors to a system of power</h2>
+      </div>
+      <div class="reflection-copy">
+        <p>Relational structures help me study algorithmic management as a socio-technical system rather than a single piece of software. Workers, customers, businesses, regulators, data, and automated decisions are represented as nodes; control, exchange, data collection, and collective action become edges.</p>
+        <p>The network makes unequal positions visible. The platform and its algorithms occupy highly connected positions, while workers are linked to income, time, safety, ratings, and data extraction. In a future project, I could compare this centralized network with a worker-owned platform cooperative to test how a change in ownership reorganizes decision-making and accountability.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Columbia GSAPP</span>
+    <span>Yizhang Mu · Relational Structures</span>
+    <span>2026</span>
+  </footer>
+
+  <div id="tooltip" class="tooltip" role="tooltip"></div>
+  <script src="d3.min.js"></script>
+  <script src="graph.js"></script>
+</body>
+</html>
