@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temporal Structures — Yizhang Mu</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="left">Columbia GSAPP</div>
+    <div class="center">
+      Computational Design Workflows<br>
+      <span>Exploration of Digital Objects</span>
+    </div>
+    <div class="right">Yizhang Mu · he/him</div>
+  </header>
+
+  <main>
+    <section class="project-intro">
+      <div class="project-meta">2026 · DIGITAL OBJECT 2</div>
+      <h1 class="project-title">Temporal<br><span>Structures</span></h1>
+      <div class="project-subtitle">Yizhang Mu · Columbia University GSAPP</div>
+      <div class="advisor">D3.js studies in scales, events, concurrent durations, CSV loading, and calendar-based temporal patterns.</div>
+    </section>
+
+    <section class="overview">
+      <div class="section-index">00</div>
+      <div>
+        <div class="section-title">Digital Object 2: Temporal Structures</div>
+        <p>This website preserves the complete original exercise structure. Five D3 canvases move from foundational axes to event timelines, concurrent programs, an externally loaded CSV timeline, and an advanced calendar heatmap. All five canvases now use one unified visual system: consistent margins, typography, line weight, animation, tooltip behavior, and color logic.</p>
+      </div>
+    </section>
+
+    <section class="visual-section">
+      <div class="section-index">01</div>
+      <div class="section-content">
+        <div class="section-title">D3.js Foundation: Basic Setup and Axes</div>
+        <p>A foundational diagram demonstrating SVG creation, linear scales, axes, labels, margins, and the coordinate system that supports every later visualization.</p>
+        <div id="d3-container-0" class="d3-canvas"></div>
+      </div>
+    </section>
+
+    <section class="visual-section">
+      <div class="section-index">02</div>
+      <div class="section-content">
+        <div class="section-title">Event Timeline: Extreme Weather Signals</div>
+        <p>An event-based timeline using temporal position, color, scale, hover interaction, and tooltips to reveal the rhythm and severity of major climate events.</p>
+        <div id="d3-container-1" class="d3-canvas"></div>
+      </div>
+    </section>
+
+    <section class="visual-section">
+      <div class="section-index">03</div>
+      <div class="section-content">
+        <div class="section-title">Concurrent Events: Community Programs</div>
+        <p>A Gantt-style visualization showing overlapping community initiatives. Duration, category, progress, and concurrency are visible within a single shared time structure.</p>
+        <div id="d3-container-2" class="d3-canvas"></div>
+      </div>
+    </section>
+
+    <section class="visual-section featured">
+      <div class="section-index">04</div>
+      <div class="section-content">
+        <div class="section-title">CSV Timeline: Urban Climate Adaptation</div>
+        <p>The original 15-record CSV-driven Gantt example now uses a different background dataset: the historical development of urban environmental adaptation. The CSV format remains exactly <code>name,start,end,category</code>.</p>
+
+        <div class="note-grid">
+          <div class="important-note">
+            <strong>Run through a local server</strong>
+            <p>Use VS Code Live Server because browsers restrict local CSV loading when an HTML file is opened directly.</p>
+          </div>
+          <div class="csv-modification">
+            <strong>CSV structure preserved</strong>
+            <p><code>name,start,end,category</code><br>Only the records and visual interpretation have changed.</p>
+          </div>
+        </div>
+
+        <div id="d3-container-3" class="d3-canvas"></div>
+      </div>
+    </section>
+
+    <section class="visual-section featured">
+      <div class="section-index">05</div>
+      <div class="section-content">
+        <div class="section-title">Advanced D3 Study: Urban Heat Calendar</div>
+        <p>A second temporal visualization preserves all 754 original daily records across 2021–2023 and replaces only their values with a synthetic urban heat-stress dataset. Every cell represents one weekday; near-baseline days recede into a neutral paper tone while genuine anomalies carry the color — cool violet below the baseline, lime rising to orange under extreme heat.</p>
+        <div id="d3-container-4" class="d3-canvas heatmap-canvas"></div>
+      </div>
+    </section>
+
+
+    <section class="precedent-intro">
+      <div class="section-index">06</div>
+      <div class="section-content">
+        <div class="precedent-kicker">PRECEDENT STUDY · FORENSIC ARCHITECTURE / FORENSIS</div>
+        <div class="precedent-title">THE BORDER<br><span>MOVES IN TIME</span></div>
+        <p class="precedent-lede">
+          In <em>The Evros/Meriç River: A Century of Border Design</em>, time is not
+          a neutral background. Legal decisions, river movement, fence construction,
+          strandings, and wildfire operate at different speeds. The following four
+          visualizations distinguish verified historical records from interpretive analysis.
+        </p>
+      </div>
+    </section>
+
+    <section class="visual-section precedent-section">
+      <div class="section-index">07</div>
+      <div class="section-content">
+        <div class="precedent-label">VERIFIED TIMELINE</div>
+        <div class="section-title">A Century of Documented Turning Points</div>
+        <p>
+          This timeline uses only source-supported years or dates, from the 1923
+          Lausanne Treaty through the 2023 wildfire and the 2024 end of the river-shift study.
+        </p>
+        <div id="evros-timeline" class="d3-canvas"></div>
+      </div>
+    </section>
+
+    <section class="visual-section precedent-section">
+      <div class="section-index">08</div>
+      <div class="section-content">
+        <div class="precedent-label">VERIFIED DURATION CHART</div>
+        <div class="section-title">Slow Processes and Short Crises</div>
+        <p>
+          The chart only includes periods with explicit ranges. Unsupported hydraulic
+          or military start dates are deliberately excluded.
+        </p>
+        <div class="csv-modification precedent-schema">
+          <strong>CSV structure:</strong>
+          <code>name,start,end,category</code>
+        </div>
+        <div id="evros-gantt" class="d3-canvas"></div>
+      </div>
+    </section>
+
+    <section class="visual-section precedent-section">
+      <div class="section-index">09</div>
+      <div class="section-content">
+        <div class="precedent-label">INTERPRETIVE EVENT SEQUENCE</div>
+        <div class="section-title">From Legal Line to Lethal Condition</div>
+        <p>
+          This diagram translates the precedent's argument into an analytical sequence.
+          Interpretive nodes are marked separately from source-supported claims.
+        </p>
+        <div id="evros-sequence" class="d3-canvas"></div>
+      </div>
+    </section>
+
+    <section class="visual-section precedent-section">
+      <div class="section-index">10</div>
+      <div class="section-content">
+        <div class="precedent-label">BINARY CALENDAR HEATMAP</div>
+        <div class="section-title">Seventeen Continuous Days of Fire</div>
+        <p>
+          The calendar uses <strong>1</strong> for the documented fire period and
+          <strong>0</strong> for all other days. It does not claim to measure daily fire intensity.
+        </p>
+        <div class="csv-modification precedent-schema">
+          <strong>CSV structure:</strong>
+          <code>Date,Close</code>
+        </div>
+        <div id="evros-heatmap" class="d3-canvas heatmap-canvas"></div>
+      </div>
+    </section>
+
+    <section class="precedent-method">
+      <div class="section-index">11</div>
+      <div class="section-content">
+        <div class="section-title">How Temporal Structure Enters My Project</div>
+        <p>
+          Through D3.js timelines, Gantt charts, event sequences, and calendar heatmaps,
+          I can connect long environmental transformations with sudden political and
+          humanitarian crises. The project therefore communicates not only what the border
+          is, but how it is repeatedly produced, reinforced, experienced, and contested over time.
+        </p>
+        <div class="method-grid">
+          <div><strong>Verified</strong><span>Treaty, border fixing, river-change range, fence stages, strandings, and wildfire duration.</span></div>
+          <div><strong>Interpretive</strong><span>The causal sequence is my analytical reading of the precedent.</span></div>
+          <div><strong>Excluded</strong><span>No invented start years and no synthetic daily fire intensity.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>Yizhang Mu</span>
+      <span>Columbia GSAPP · CDP</span>
+      <span>D3.js Temporal Structures · 2026</span>
+    </footer>
+  </main>
+
+  <!-- Preserve all five original scripts and canvases -->
+  <script src="d3-testing.js"></script>
+  <script src="events-simple.js"></script>
+  <script src="concurrent-events.js"></script>
+  <script src="concurrent-events-cvs.js"></script>
+  <script src="calendar-heatmap.js"></script>
+  <script src="evros-charts.js"></script>
+</body>
+</html>
